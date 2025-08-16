@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesh Chaturthi Greetings</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Background Animation -->
+        <div class="background-animation">
+            <div class="floating-element" style="--delay: 0s; --duration: 8s;">🕉️</div>
+            <div class="floating-element" style="--delay: 2s; --duration: 10s;">🌺</div>
+            <div class="floating-element" style="--delay: 4s; --duration: 12s;">🪔</div>
+            <div class="floating-element" style="--delay: 6s; --duration: 9s;">🙏</div>
+            <div class="floating-element" style="--delay: 1s; --duration: 11s;">✨</div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">
+                <span class="title-line">Ganpati Bappa</span>
+                <span class="title-line">Morya!</span>
+            </h1>
+            <p class="subtitle">May Lord Ganesha bless you with happiness and prosperity</p>
+        </header>
+
+        <!-- Personalization Form -->
+        <div class="personalization-card" id="personalizationCard">
+            <h2>Personalize Your Greeting</h2>
+            <div class="form-group">
+                <label for="userName">Your Name:</label>
+                <input type="text" id="userName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="relativeName">Send to:</label>
+                <input type="text" id="relativeName" placeholder="Enter relative's name">
+            </div>
+            <button class="create-btn" onclick="createGreeting()">Create Greeting</button>
+        </div>
+
+        <!-- Greeting Display -->
+        <div class="greeting-display" id="greetingDisplay" style="display: none;">
+            <div class="greeting-card">
+                <div class="ganesh-image">
+                    <img src="ganesh1.jpg" alt="Lord Ganesha" id="ganeshImg">
+                </div>
+                <div class="greeting-content">
+                    <h2 class="greeting-title">Happy Ganesh Chaturthi!</h2>
+                    <div class="personalized-message">
+                        <p>Dear <span id="displayRelativeName" class="highlight-name"></span>,</p>
+                        <p class="blessing-text">
+                            May Lord Ganesha remove all obstacles from your path and fill your life with joy, prosperity, and success. 
+                            Wishing you and your family a very Happy Ganesh Chaturthi!
+                        </p>
+                        <p class="sender">With love and blessings,<br><span id="displayUserName" class="highlight-name"></span></p>
+                    </div>
+                    <div class="decorative-border"></div>
+                </div>
+            </div>
+            
+            <!-- Music Controls -->
+            <div class="music-controls">
+                <h3>🎵 Add Devotional Music</h3>
+                <div class="music-options">
+                    <button class="music-btn" onclick="playMusic('aarti')">Play Aarti</button>
+                    <button class="music-btn" onclick="playMusic('bhajan')">Play Bhajan</button>
+                    <button class="music-btn" onclick="playMusic('instrumental')">Instrumental</button>
+                    <button class="music-btn stop-btn" onclick="stopMusic()">Stop Music</button>
+                </div>
+                <div class="music-info" id="musicInfo"></div>
+            </div>
+
+            <!-- Share Options -->
+            <div class="share-section">
+                <h3>Share Your Greeting</h3>
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                        📱 WhatsApp
+                    </button>
+                    <button class="share-btn facebook" onclick="shareOnFacebook()">
+                        📘 Facebook
+                    </button>
+                    <button class="share-btn twitter" onclick="shareOnTwitter()">
+                        🐦 Twitter
+                    </button>
+                    <button class="share-btn copy" onclick="copyLink()">
+                        📋 Copy Link
+                    </button>
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="goBack()">Create Another Greeting</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Ganesh Chaturthi Greetings. Made with ❤️ for devotees</p>
+        </footer>
+    </div>
+
+    <!-- Audio Elements (Hidden) -->
+    <audio id="backgroundMusic" loop>
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
