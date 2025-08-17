@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>गणेश चतुर्थी की शुभकामनाएं</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Teko:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Teko:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <img src="https://images.pexels.com/photos/13563915/pexels-photo-13563915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="भगवान गणेश" class="ganesh-img">
+            <!-- नई और विश्वसनीय गणेश जी की तस्वीर -->
+            <img src="https://images.unsplash.com/photo-1603892579223-25810023a518" alt="भगवान गणेश" class="ganesh-img">
             
-            <h1 class="title">गणेश चतुर्थी</h1>
-            <p class="greeting-message" id="greetingMessage">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥<br><br>आपको और आपके परिवार को गणेश चतुर्थी की हार्दिक शुभकामनाएं!</p>
+            <h1 class="title">श्री गणेशाय नमः</h1>
+            
+            <!-- थीम के अनुसार नया शुभकामना संदेश -->
+            <div id="greetingContainer">
+                <p class="greeting-message" id="greetingMessage">
+                    ॐ गं गणपतये नमः! <br>
+                    गणपति बाप्पा मोरया! इस पावन पर्व पर, विघ्नहर्ता गणेश आपके सभी दुखों को दूर करें और आपके जीवन को ज्ञान, समृद्धि और खुशियों से भर दें।
+                    <br><br>
+                    <strong>गणेश चतुर्थी की ढेरों शुभकामनाएं!</strong>
+                </p>
+            </div>
 
             <div id="inputSection">
                 <input type="text" id="nameInput" placeholder="अपना नाम यहाँ लिखें">
@@ -21,12 +31,12 @@
             </div>
 
             <div id="shareSection" style="display: none;">
-                <p>इस शुभकामना लिंक को अपने प्रियजनों के साथ साझा करें:</p>
+                <p class="share-title">इस शुभकामना लिंक को अपने प्रियजनों के साथ साझा करें:</p>
                 <input type="text" id="shareLink" readonly>
                 <button id="copyButton">लिंक कॉपी करें</button>
             </div>
 
-            <!-- Ad Banner Code -->
+            <!-- विज्ञापन बैनर कोड -->
             <div class="ads-banner">
                 <script type="text/javascript">
                     atOptions = {
