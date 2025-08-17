@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>गणेश चतुर्थी की शुभकामनाएं</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Teko:wght@700&display=swap" rel="stylesheet">
+    <title>Festival Greetings by Ganesh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kaushan+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Container for the fireworks animation -->
+    <div id="fireworks-container"></div>
+
     <div class="container">
         <div class="card">
-            <!-- नई और विश्वसनीय गणेश जी की तस्वीर -->
-            <img src="https://images.unsplash.com/photo-1603892579223-25810023a518" alt="भगवान गणेश" class="ganesh-img">
+            <img src="https://images.unsplash.com/photo-1603892579223-25810023a518" alt="Lord Ganesha" class="ganesh-img">
             
-            <h1 class="title">श्री गणेशाय नमः</h1>
+            <h1 class="title">Divine Blessings</h1>
             
-            <!-- थीम के अनुसार नया शुभकामना संदेश -->
             <div id="greetingContainer">
+                <!-- Sender's name will be dynamically added here -->
                 <p class="greeting-message" id="greetingMessage">
-                    ॐ गं गणपतये नमः! <br>
-                    गणपति बाप्पा मोरया! इस पावन पर्व पर, विघ्नहर्ता गणेश आपके सभी दुखों को दूर करें और आपके जीवन को ज्ञान, समृद्धि और खुशियों से भर दें।
-                    <br><br>
-                    <strong>गणेश चतुर्थी की ढेरों शुभकामनाएं!</strong>
+                    May the divine light of the festival spread into your life and fill it with peace, prosperity, and happiness. Wishing you and your family a vibrant and joyous celebration!
                 </p>
             </div>
 
+            <!-- Section to create a new greeting -->
             <div id="inputSection">
-                <input type="text" id="nameInput" placeholder="अपना नाम यहाँ लिखें">
-                <button id="createLinkButton">शुभकामना लिंक बनाएं</button>
+                <input type="text" id="nameInput" placeholder="Enter Your Name">
+                <button id="createLinkButton">✨ Create Greeting Link</button>
             </div>
 
+            <!-- Section to share the generated link -->
             <div id="shareSection" style="display: none;">
-                <p class="share-title">इस शुभकामना लिंक को अपने प्रियजनों के साथ साझा करें:</p>
+                <p class="share-title">Share this festive wish with your loved ones:</p>
                 <input type="text" id="shareLink" readonly>
-                <button id="copyButton">लिंक कॉपी करें</button>
+                <button id="copyButton">Copy Link</button>
             </div>
 
-            <!-- विज्ञापन बैनर कोड -->
+            <!-- Button for the recipient to create their own greeting -->
+            <div id="createOwnSection" style="display: none;">
+                <button id="createOwnButton">🎉 Create Your Own Greeting</button>
+            </div>
+
+            <!-- Ad Banner Code -->
             <div class="ads-banner">
                 <script type="text/javascript">
                     atOptions = {
@@ -51,6 +57,10 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript library for fireworks -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.2/dist/index.umd.js"></script>
+    <!-- Your custom JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
