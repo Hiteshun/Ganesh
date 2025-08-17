@@ -1,7 +1,6 @@
 /* --- General Body and Background Styling --- */
 body {
     font-family: 'Poppins', sans-serif;
-    /* A deep, festive gradient from purple to red, evoking a celebratory evening mood. */
     background: linear-gradient(135deg, #480048, #C04848); 
     display: flex;
     justify-content: center;
@@ -10,48 +9,41 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    /* Hide scrollbars that might appear due to the fireworks animation canvas. */
     overflow: hidden; 
 }
 
 /* --- Fireworks Container --- */
-/* This container holds the fireworks animation canvas and sits behind all other content. */
 #fireworks-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place it behind the greeting card */
+    z-index: -1;
 }
 
 /* --- 3D Card Effect Container --- */
 .container {
-    /* Enables a 3D space for child elements. The value determines the intensity of the 3D effect. */
     perspective: 1500px; 
 }
 
 /* --- Main Greeting Card Styling --- */
 .card {
-    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white for a glassy look */
-    backdrop-filter: blur(10px); /* Blurs the background behind the card */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     width: 100%;
     max-width: 480px;
     border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Soft, deep shadow */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     padding: 30px 40px;
     text-align: center;
-    /* Subtle borders to enhance the glassy effect */
     border-top: 1px solid rgba(255, 255, 255, 0.7);
     border-left: 1px solid rgba(255, 255, 255, 0.7);
     transition: transform 0.4s ease-out;
-    /* Initial 3D tilt to create the pop-up effect */
     transform: rotateY(-5deg) rotateX(5deg); 
 }
 
-/* --- Card Hover Animation --- */
 .card:hover {
-    /* Animates the card to a flat, slightly larger state on hover for a nice interactive feel. */
     transform: rotateY(0deg) rotateX(0deg) scale(1.03); 
 }
 
@@ -59,24 +51,24 @@ body {
 .ganesh-img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-fit: cover;
     border-radius: 50%;
     margin-bottom: 15px;
-    border: 8px solid #FFC107; /* Rich, gold-colored border */
+    border: 8px solid #FFC107;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Typography Styling --- */
 .title {
-    font-family: 'Kaushan Script', cursive; /* An elegant, handwritten-style font */
+    font-family: 'Kaushan Script', cursive;
     font-size: 3rem;
-    color: #C04848; /* Matches the red from the background gradient */
+    color: #C04848;
     margin: 0;
     line-height: 1.1;
 }
 
 .greeting-message {
-    color: #333; /* Dark grey for readability */
+    color: #333;
     font-size: 1.05rem;
     line-height: 1.8;
     margin: 20px 0;
@@ -85,7 +77,7 @@ body {
 .sender-info {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #DD2476; /* Vibrant pink to stand out */
+    color: #DD2476;
     margin-bottom: 10px;
 }
 
@@ -107,7 +99,6 @@ body {
     transition: all 0.3s;
 }
 
-/* Style for when the input field is active/focused */
 #nameInput:focus {
     border-color: #C04848;
     box-shadow: 0 0 10px rgba(192, 72, 72, 0.3);
@@ -116,7 +107,7 @@ body {
 
 /* --- Button Styling --- */
 button {
-    background: linear-gradient(45deg, #FF512F, #DD2476); /* Vibrant orange to pink gradient */
+    background: linear-gradient(45deg, #FF512F, #DD2476);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -134,17 +125,61 @@ button:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Specific button for "Create Your Own" with a different color scheme */
 #createOwnButton {
-    background: linear-gradient(45deg, #11998e, #38ef7d); /* Fresh green gradient */
+    background: linear-gradient(45deg, #11998e, #38ef7d);
     margin-top: 15px;
 }
 
-/* --- Ad Banner Container --- */
+/* --- Fictional Ad Banner Styling --- */
 .ads-banner {
     margin-top: 25px;
+}
+
+#fakeAdBanner {
+    height: 60px;
+    width: 100%;
+    background: linear-gradient(45deg, #FFC107, #F57C00); /* Gold to Orange */
+    color: white;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#fakeAdBanner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- MOBILE-FRIENDLY STYLES --- */
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+    
+    .card {
+        padding: 25px 20px;
+        transform: none; /* Disable 3D tilt on mobile for simplicity */
+    }
+
+    .card:hover {
+        transform: scale(1.02); /* Simpler hover effect for mobile */
+    }
+
+    .ganesh-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .greeting-message {
+        font-size: 0.95rem;
+    }
 }
