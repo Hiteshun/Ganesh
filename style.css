@@ -1,6 +1,8 @@
+/* --- General Body and Background Styling --- */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fceabb, #f8b500); /* Festive Yellow/Gold Gradient */
+    /* A deep, festive gradient from purple to red, evoking a celebratory evening mood. */
+    background: linear-gradient(135deg, #480048, #C04848); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,47 +10,92 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    /* Hide scrollbars that might appear due to the fireworks animation canvas. */
+    overflow: hidden; 
 }
 
-.container {
+/* --- Fireworks Container --- */
+/* This container holds the fireworks animation canvas and sits behind all other content. */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 500px;
+    height: 100%;
+    z-index: -1; /* Place it behind the greeting card */
 }
 
+/* --- 3D Card Effect Container --- */
+.container {
+    /* Enables a 3D space for child elements. The value determines the intensity of the 3D effect. */
+    perspective: 1500px; 
+}
+
+/* --- Main Greeting Card Styling --- */
 .card {
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    padding: 30px 35px;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white for a glassy look */
+    backdrop-filter: blur(10px); /* Blurs the background behind the card */
+    width: 100%;
+    max-width: 480px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Soft, deep shadow */
+    padding: 30px 40px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Subtle borders to enhance the glassy effect */
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    border-left: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.4s ease-out;
+    /* Initial 3D tilt to create the pop-up effect */
+    transform: rotateY(-5deg) rotateX(5deg); 
 }
 
+/* --- Card Hover Animation --- */
+.card:hover {
+    /* Animates the card to a flat, slightly larger state on hover for a nice interactive feel. */
+    transform: rotateY(0deg) rotateX(0deg) scale(1.03); 
+}
+
+/* --- Ganesha Image Styling --- */
 .ganesh-img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
     border-radius: 50%;
     margin-bottom: 15px;
-    border: 8px solid #ff9800; /* Marigold color border */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border: 8px solid #FFC107; /* Rich, gold-colored border */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Typography Styling --- */
 .title {
-    font-family: 'Teko', sans-serif;
+    font-family: 'Kaushan Script', cursive; /* An elegant, handwritten-style font */
     font-size: 3rem;
-    color: #E65100; /* Deep Orange */
+    color: #C04848; /* Matches the red from the background gradient */
     margin: 0;
     line-height: 1.1;
 }
 
 .greeting-message {
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 15px 0 25px 0;
+    color: #333; /* Dark grey for readability */
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 20px 0;
 }
 
+.sender-info {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #DD2476; /* Vibrant pink to stand out */
+    margin-bottom: 10px;
+}
+
+.share-title {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* --- Input Field Styling --- */
 #nameInput, #shareLink {
     width: calc(100% - 24px);
     padding: 12px;
@@ -57,53 +104,47 @@ body {
     margin-bottom: 15px;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
 }
 
+/* Style for when the input field is active/focused */
 #nameInput:focus {
-    border-color: #ff9800;
-    box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+    border-color: #C04848;
+    box-shadow: 0 0 10px rgba(192, 72, 72, 0.3);
     outline: none;
 }
 
+/* --- Button Styling --- */
 button {
-    background: linear-gradient(45deg, #FF6F00, #E65100); /* Saffron Gradient */
+    background: linear-gradient(45deg, #FF512F, #DD2476); /* Vibrant orange to pink gradient */
     color: white;
     border: none;
     padding: 12px 25px;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    width: 100%;
 }
 
 button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-#shareSection {
-    margin-top: 20px;
+/* Specific button for "Create Your Own" with a different color scheme */
+#createOwnButton {
+    background: linear-gradient(45deg, #11998e, #38ef7d); /* Fresh green gradient */
+    margin-top: 15px;
 }
 
-.share-title {
-    color: #555;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.sender-info {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #E65100;
-    margin-bottom: 15px;
-}
-
+/* --- Ad Banner Container --- */
 .ads-banner {
     margin-top: 25px;
-    overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
