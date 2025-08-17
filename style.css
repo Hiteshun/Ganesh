@@ -1,472 +1,84 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 50%, #f7931e 100%);
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
+    margin: 0;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-/* Background Animation */
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.floating-element {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.3;
-    animation: float var(--duration) ease-in-out infinite;
-    animation-delay: var(--delay);
-}
-
-.floating-element:nth-child(1) { top: 10%; left: 10%; }
-.floating-element:nth-child(2) { top: 20%; right: 15%; }
-.floating-element:nth-child(3) { bottom: 30%; left: 20%; }
-.floating-element:nth-child(4) { bottom: 20%; right: 10%; }
-.floating-element:nth-child(5) { top: 50%; left: 50%; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-20px) rotate(5deg); }
-    50% { transform: translateY(-10px) rotate(-5deg); }
-    75% { transform: translateY(-15px) rotate(3deg); }
-}
-
-/* Header Styles */
-.header {
-    text-align: center;
-    margin-bottom: 3rem;
-    animation: fadeInDown 1s ease-out;
-}
-
-.main-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.title-line {
-    display: block;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #fff;
-    font-weight: 300;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes glow {
-    from { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3); }
-    to { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.6); }
-}
-
-/* Personalization Card */
-.personalization-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    max-width: 500px;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease-out 0.3s both;
-}
-
-.personalization-card h2 {
-    color: #ff6b35;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-weight: 600;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #ff6b35;
-    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-    transform: translateY(-2px);
-}
-
-.create-btn {
-    width: 100%;
-    padding: 1.2rem;
-    background: linear-gradient(135deg, #ff6b35, #ff9a56);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.create-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
-}
-
-/* Greeting Display */
-.greeting-display {
-    animation: fadeIn 1s ease-out;
-}
-
-.greeting-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
+    background-color: #fff;
     padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.ganesh-image {
-    flex: 1;
-    min-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.ganesh-image img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+h1 {
+    color: #ff6f00;
 }
 
-.ganesh-image img:hover {
-    transform: scale(1.05);
-}
-
-.greeting-content {
-    flex: 2;
-    min-width: 300px;
-}
-
-.greeting-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: #ff6b35;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.personalized-message p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.highlight-name {
-    color: #ff6b35;
-    font-weight: 600;
-    font-size: 1.1em;
-}
-
-.blessing-text {
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #555;
-    text-align: justify;
+.greetings-card {
     margin: 1.5rem 0;
 }
 
-.sender {
-    text-align: right;
-    font-weight: 500;
-    margin-top: 2rem;
+.greetings-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-.decorative-border {
-    height: 4px;
-    background: linear-gradient(90deg, #ff6b35, #ff9a56, #f7931e);
-    border-radius: 2px;
-    margin-top: 2rem;
-}
-
-/* Music Controls */
-.music-controls {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.music-controls h3 {
-    color: #ff6b35;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-.music-options {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.music-btn {
-    padding: 0.8rem 1.5rem;
-    border: 2px solid #ff6b35;
-    background: transparent;
-    color: #ff6b35;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.music-btn:hover {
-    background: #ff6b35;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.music-btn.active {
-    background: #ff6b35;
-    color: white;
-}
-
-.stop-btn {
-    border-color: #e74c3c;
-    color: #e74c3c;
-}
-
-.stop-btn:hover {
-    background: #e74c3c;
-    color: white;
-}
-
-.music-info {
+#greeting-message {
     margin-top: 1rem;
-    font-style: italic;
-    color: #666;
+    font-size: 1.1rem;
+    color: #333;
 }
 
-/* Share Section */
-.share-section {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.share-section h3 {
-    color: #ff6b35;
+.input-section {
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
 }
 
-.share-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+#name-input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
 }
 
-.share-btn {
+#generate-btn {
     padding: 0.8rem 1.5rem;
+    background-color: #ff6f00;
+    color: #fff;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    color: white;
+    font-size: 1rem;
 }
 
-.share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.social-share a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 
-.whatsapp { background: #25D366; }
-.facebook { background: #1877F2; }
-.twitter { background: #1DA1F2; }
-.copy { background: #6c757d; }
-
-/* Back Button */
-.back-btn {
-    display: block;
-    margin: 2rem auto;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #6c757d, #495057);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
+#whatsapp-share {
+    background-color: #25d366;
 }
 
-.back-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(108, 117, 125, 0.4);
+#facebook-share {
+    background-color: #1877f2;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 2rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
+#twitter-share {
+    background-color: #1da1f2;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.ad-unit {
+    margin-top: 2rem;
 }
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    
-    .main-title {
-        font-size: 3rem;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-    }
-    
-    .personalization-card {
-        padding: 2rem;
-        margin: 0 10px;
-    }
-    
-    .greeting-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-    }
-    
-    .ganesh-image {
-        min-width: auto;
-    }
-    
-    .greeting-content {
-        min-width: auto;
-    }
-    
-    .music-options,
-    .share-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .music-btn,
-    .share-btn {
-        width: 200px;
-    }
-    
-    .floating-element {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 2.5rem;
-    }
-    
-    .personalization-card {
-        padding: 1.5rem;
-    }
-    
-    .greeting-card {
-        padding: 1rem;
-    }
-    
-    .music-controls,
-    .share-section {
-        padding: 1.5rem;
-    }
-}
-
