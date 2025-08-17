@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FFC371, #FF5F6D);
+    background: linear-gradient(135deg, #fceabb, #f8b500); /* Festive Yellow/Gold Gradient */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,30 +16,30 @@ body {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.9);
+    background: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    padding: 30px 35px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .ganesh-img {
-    width: 180px;
-    height: auto;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 20px;
-    border: 6px solid #FF5F6D;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    border: 8px solid #ff9800; /* Marigold color border */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .title {
     font-family: 'Teko', sans-serif;
-    font-size: 3.5rem;
-    color: #c8404a;
+    font-size: 3rem;
+    color: #E65100; /* Deep Orange */
     margin: 0;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .greeting-message {
@@ -57,16 +57,17 @@ body {
     margin-bottom: 15px;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #nameInput:focus {
-    border-color: #FF5F6D;
+    border-color: #ff9800;
+    box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
     outline: none;
 }
 
 button {
-    background-color: #FF5F6D;
+    background: linear-gradient(45deg, #FF6F00, #E65100); /* Saffron Gradient */
     color: white;
     border: none;
     padding: 12px 25px;
@@ -74,26 +75,35 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: #e04a56;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 #shareSection {
     margin-top: 20px;
 }
 
-#shareSection p {
+.share-title {
     color: #555;
     font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sender-info {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #E65100;
+    margin-bottom: 15px;
 }
 
 .ads-banner {
     margin-top: 25px;
-    overflow: hidden; /* Ensures ad fits within the card */
+    overflow: hidden;
     display: flex;
     justify-content: center;
 }
