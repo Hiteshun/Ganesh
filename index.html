@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festival Greetings by Ganesh</title>
+    <title>Happy Ganesh Chaturthi!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Kaushan+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +14,7 @@
         <div class="card">
             <img src="ganesh1.jpg" alt="Lord Ganesha" class="ganesh-img">
             
-            <h1 class="title">Divine Blessings</h1>
+            <h1 class="title">Happy Ganesh Chaturthi</h1>
             
             <div id="greetingContainer">
                 <p class="greeting-message" id="greetingMessage">
@@ -33,12 +33,30 @@
                 <button id="copyButton">Copy Link</button>
             </div>
 
+            <!-- This is the Green Button -->
             <div id="createOwnSection" style="display: none;">
                 <button id="createOwnButton">🎉 Create Your Own Greeting</button>
             </div>
 
-            <!-- CORRECTED: Fictional Ad Banner. Ensure this is the only thing inside .ads-banner -->
-            <div class="ads-banner">
+            <!-- 
+            NEW: Real Ad Banner section added here.
+            This will display the actual ad.
+            -->
+            <div class="real-ads-banner" id="realAdContainer">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '88f3a2379a7a557de37556037ae72b97',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/88f3a2379a7a557de37556037ae72b97/invoke.js"></script>
+            </div>
+
+            <!-- This is the Yellow Surprise Button -->
+            <div class="surprise-banner-container">
                 <div id="fakeAdBanner">
                     ✨ Click Here for a Festive Surprise! ✨
                 </div>
