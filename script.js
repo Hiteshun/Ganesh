@@ -1,70 +1,108 @@
-// यह सुनिश्चित करता है कि पूरा वेबपेज लोड होने के बाद ही कोड चले
+// Wait for the entire HTML document to be loaded and parsed before running the script.
 document.addEventListener('DOMContentLoaded', () => {
     
-    // URL से पैरामीटर (नाम) प्राप्त करने के लिए
+    // --- 1. ELEMENT SELECTION ---
+    // Get all the HTML elements we need to work with.
+    
+    // Check the URL for a 'from' parameter (e.g., ?from=John)
     const urlParams = new URLSearchParams(window.location.search);
     const fromName = urlParams.get('from');
 
-    // HTML तत्वों का चयन
+    // Get the containers and sections
     const greetingContainer = document.getElementById('greetingContainer');
     const inputSection = document.getElementById('inputSection');
     const shareSection = document.getElementById('shareSection');
+    const createOwnSection = document.getElementById('createOwnSection');
+    
+    // Get the inputs and buttons
     const nameInput = document.getElementById('nameInput');
     const createLinkButton = document.getElementById('createLinkButton');
     const shareLinkInput = document.getElementById('shareLink');
     const copyButton = document.getElementById('copyButton');
+    const createOwnButton = document.getElementById('createOwnButton');
+    
+    // --- 2. FIREWORKS SETUP ---
+    // Initialize the fireworks animation using the fireworks-js library.
+    const fireworksContainer = document.getElementById('fireworks-container');
+    const fireworks = new Fireworks.default(fireworksContainer, {
+        opacity: 0.5,
+        rocketsPoint: { min: 45, max: 55 },
+        hue: { min: 0, max: 360 },
+        delay: { min: 30, max: 60 },
+        traceSpeed: 2,
+        explosion: 6,
+    });
 
-    // अगर URL में 'from' पैरामीटर है, तो शुभकामना संदेश दिखाएं
+    // --- 3. MAIN LOGIC ---
+    // Check if the page was loaded from a shared link.
     if (fromName) {
-        // नाम को डिकोड करें (जैसे %20 को स्पेस में बदलना)
+        // This block runs ONLY if a name is found in the URL.
+        
+        // Decode the name from the URL (e.g., "%20" becomes a space).
         const decodedName = decodeURIComponent(fromName);
         
-        // भेजने वाले का नाम दिखाने के लिए एक नया एलिमेंट बनाएं
+        // Create a new paragraph element to display the sender's name.
         const senderElement = document.createElement('p');
-        senderElement.className = 'sender-info';
-        senderElement.innerHTML = `<strong>${decodedName}</strong> की तरफ से आपको...`;
+        senderElement.className = 'sender-info'; // Apply CSS styling
+        senderElement.innerHTML = `A festive wish from <strong>${decodedName}</strong>`;
         
-        // संदेश को ग्रीटिंग कंटेनर में सबसे ऊपर जोड़ें
+        // Add the sender's name message to the top of the greeting card.
         greetingContainer.prepend(senderElement);
         
-        // नाम दर्ज करने वाले सेक्शन को छिपा दें
+        // Hide the section for creating a link.
         inputSection.style.display = 'none';
+        
+        // Show the button that allows the recipient to create their own greeting.
+        createOwnSection.style.display = 'block';
+
+        // Start the fireworks animation!
+        fireworks.start();
+        
+        // Stop the fireworks after 8 seconds to save resources.
+        setTimeout(() => {
+            fireworks.stop();
+        }, 8000);
     }
 
-    // "शुभकामना लिंक बनाएं" बटन पर क्लिक होने पर
+    // --- 4. EVENT LISTENERS ---
+    // Define what happens when buttons are clicked.
+
+    // A. When the "Create Greeting Link" button is clicked:
     createLinkButton.addEventListener('click', () => {
-        const name = nameInput.value.trim(); // इनपुट से नाम लें और फालतू स्पेस हटा दें
+        const name = nameInput.value.trim(); // Get the name from the input field.
         
-        if (name) { // अगर नाम खाली नहीं है
-            // वर्तमान URL प्राप्त करें और उसमें नाम जोड़ें
-            const baseUrl = window.location.href.split('?')[0];
-            const newUrl = `${baseUrl}?from=${encodeURIComponent(name)}`;
+        if (name) { // Proceed only if a name was entered.
+            const baseUrl = window.location.href.split('?')[0]; // Get the clean URL without any parameters.
+            const newUrl = `${baseUrl}?from=${encodeURIComponent(name)}`; // Create the new shareable link.
             
-            shareLinkInput.value = newUrl; // नए लिंक को शेयर बॉक्स में दिखाएं
-            inputSection.style.display = 'none'; // इनपुट सेक्शन छिपाएं
-            shareSection.style.display = 'block'; // शेयर सेक्शन दिखाएं
+            shareLinkInput.value = newUrl; // Put the new link into the share input box.
+            inputSection.style.display = 'none'; // Hide the input section.
+            shareSection.style.display = 'block'; // Show the share section.
         } else {
-            alert('कृपया अपना नाम दर्ज करें।'); // अगर नाम खाली है तो अलर्ट दिखाएं
+            // If the name input is empty, show an alert.
+            alert('Please enter your name.');
         }
     });
 
-    // "लिंक कॉपी करें" बटन पर क्लिक होने पर
+    // B. When the "Copy Link" button is clicked:
     copyButton.addEventListener('click', () => {
-        shareLinkInput.select(); // लिंक को चुनें
-        shareLinkInput.setSelectionRange(0, 99999); // मोबाइल उपकरणों के लिए
-
-        // क्लिपबोर्ड पर कॉपी करें
+        shareLinkInput.select(); // Select the text in the input field.
+        
+        // Use the modern Navigator Clipboard API to copy the text.
         navigator.clipboard.writeText(shareLinkInput.value).then(() => {
-            alert('लिंक क्लिपबोर्ड पर कॉपी हो गया है!');
+            // If successful, show a confirmation message.
+            alert('Link copied to clipboard! Share it with your loved ones.');
         }).catch(err => {
-            console.error('लिंक कॉपी नहीं हो सका: ', err);
-            // पुराना तरीका (fallback)
-            try {
-                document.execCommand('copy');
-                alert('लिंक क्लिपबोर्ड पर कॉपी हो गया है!');
-            } catch (e) {
-                alert('लिंक कॉपी करने में विफल।');
-            }
+            // If it fails, log the error and show an alert.
+            console.error('Failed to copy text: ', err);
+            alert('Failed to copy the link.');
         });
+    });
+
+    // C. When the recipient clicks the "Create Your Own Greeting" button:
+    createOwnButton.addEventListener('click', () => {
+        // Redirect the user to the base URL of the page, removing the "?from=..." parameter.
+        // This resets the page to its original state so they can create their own greeting.
+        window.location.href = window.location.pathname;
     });
 });
