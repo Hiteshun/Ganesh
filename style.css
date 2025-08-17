@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    overflow: hidden; 
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* --- Fireworks Container --- */
@@ -25,6 +25,9 @@ body {
 /* --- 3D Card Effect Container --- */
 .container {
     perspective: 1500px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* --- Main Greeting Card Styling --- */
@@ -59,80 +62,24 @@ body {
 }
 
 /* --- Typography Styling --- */
-.title {
-    font-family: 'Kaushan Script', cursive;
-    font-size: 3rem;
-    color: #C04848;
-    margin: 0;
-    line-height: 1.1;
-}
-
-.greeting-message {
-    color: #333;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin: 20px 0;
-}
-
-.sender-info {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #DD2476;
-    margin-bottom: 10px;
-}
-
-.share-title {
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 10px;
-}
+.title { font-family: 'Kaushan Script', cursive; font-size: 3rem; color: #C04848; margin: 0; line-height: 1.1; }
+.greeting-message { color: #333; font-size: 1.05rem; line-height: 1.8; margin: 20px 0; }
+.sender-info { font-size: 1.4rem; font-weight: 600; color: #DD2476; margin-bottom: 10px; }
+.share-title { font-weight: 600; color: #555; margin-bottom: 10px; }
 
 /* --- Input Field Styling --- */
-#nameInput, #shareLink {
-    width: calc(100% - 24px);
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s;
-}
-
-#nameInput:focus {
-    border-color: #C04848;
-    box-shadow: 0 0 10px rgba(192, 72, 72, 0.3);
-    outline: none;
-}
+#nameInput, #shareLink { width: calc(100% - 24px); padding: 12px; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 15px; font-size: 16px; font-family: 'Poppins', sans-serif; transition: all 0.3s; }
+#nameInput:focus { border-color: #C04848; box-shadow: 0 0 10px rgba(192, 72, 72, 0.3); outline: none; }
 
 /* --- Button Styling --- */
-button {
-    background: linear-gradient(45deg, #FF512F, #DD2476);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    width: 100%;
-}
+button { background: linear-gradient(45deg, #FF512F, #DD2476); color: white; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); width: 100%; }
+button:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+#createOwnButton { background: linear-gradient(45deg, #11998e, #38ef7d); margin-top: 15px; }
 
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-#createOwnButton {
-    background: linear-gradient(45deg, #11998e, #38ef7d);
-    margin-top: 15px;
-}
-
-/* --- Fictional Ad Banner Styling --- */
+/* --- Fictional Ad Banner Styling (Re-verified) --- */
 .ads-banner {
     margin-top: 25px;
+    width: 100%; /* Ensure container takes full width */
 }
 
 #fakeAdBanner {
@@ -148,6 +95,7 @@ button:hover {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile click */
 }
 
 #fakeAdBanner:hover {
@@ -157,29 +105,11 @@ button:hover {
 
 /* --- MOBILE-FRIENDLY STYLES --- */
 @media (max-width: 500px) {
-    body {
-        padding: 10px;
-    }
-    
-    .card {
-        padding: 25px 20px;
-        transform: none; /* Disable 3D tilt on mobile for simplicity */
-    }
-
-    .card:hover {
-        transform: scale(1.02); /* Simpler hover effect for mobile */
-    }
-
-    .ganesh-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .title {
-        font-size: 2.5rem;
-    }
-
-    .greeting-message {
-        font-size: 0.95rem;
-    }
+    body { padding: 10px; }
+    .card { padding: 25px 20px; transform: none; }
+    .card:hover { transform: scale(1.02); }
+    .ganesh-img { width: 120px; height: 120px; }
+    .title { font-size: 2.5rem; }
+    .greeting-message { font-size: 0.95rem; }
+    #fakeAdBanner { font-size: 0.9rem; }
 }
