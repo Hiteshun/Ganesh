@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ganesh Chaturthi Greetings</title>
+    <title>गणेश चतुर्थी की शुभकामनाएं</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Teko:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Happy Ganesh Chaturthi!</h1>
-        <div class="greetings-card">
-            <img src="ganesh_image.jpg" alt="Lord Ganesha">
-            <div id="greeting-message">
-                <p>May Lord Ganesha bless you and your family with good fortune, wisdom, and remove all obstacles. [9]</p>
+        <div class="card">
+            <img src="https://images.pexels.com/photos/13563915/pexels-photo-13563915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="भगवान गणेश" class="ganesh-img">
+            
+            <h1 class="title">गणेश चतुर्थी</h1>
+            <p class="greeting-message" id="greetingMessage">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥<br><br>आपको और आपके परिवार को गणेश चतुर्थी की हार्दिक शुभकामनाएं!</p>
+
+            <div id="inputSection">
+                <input type="text" id="nameInput" placeholder="अपना नाम यहाँ लिखें">
+                <button id="createLinkButton">शुभकामना लिंक बनाएं</button>
             </div>
-        </div>
-        <div class="input-section">
-            <input type="text" id="name-input" placeholder="Enter a name">
-            <button id="generate-btn">Generate Greeting</button>
-        </div>
-        <div class="social-share">
-            <a href="#" id="whatsapp-share" target="_blank">Share on WhatsApp</a>
-            <a href="#" id="facebook-share" target="_blank">Share on Facebook</a>
-            <a href="#" id="twitter-share" target="_blank">Share on Twitter</a>
-        </div>
-        <div class="ad-unit">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '88f3a2379a7a557de37556037ae72b97',
-                    'format' : 'iframe',
-                    'height' : 60,
-                    'width' : 468,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//www.highperformanceformat.com/88f3a2379a7a557de37556037ae72b97/invoke.js"></script>
+
+            <div id="shareSection" style="display: none;">
+                <p>इस शुभकामना लिंक को अपने प्रियजनों के साथ साझा करें:</p>
+                <input type="text" id="shareLink" readonly>
+                <button id="copyButton">लिंक कॉपी करें</button>
+            </div>
+
+            <!-- Ad Banner Code -->
+            <div class="ads-banner">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '88f3a2379a7a557de37556037ae72b97',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/88f3a2379a7a557de37556037ae72b97/invoke.js"></script>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
